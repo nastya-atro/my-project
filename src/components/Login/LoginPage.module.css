@@ -1,0 +1,7 @@
+.someerror{
+    border: solid 2px white;
+    padding: 5px;
+    color: white;
+    background-color: black;
+    width: 30%
+}

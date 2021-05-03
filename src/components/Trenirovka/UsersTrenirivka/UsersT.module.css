@@ -1,0 +1,13 @@
+.avatar img{
+    height: 60px;
+    width: 60px
+}
+
+.users{
+    padding: 20px;
+    margin-bottom: 10px
+}
+
+.activePage{
+    font-weight: bold;
+}

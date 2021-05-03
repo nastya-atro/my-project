@@ -1,0 +1,18 @@
+.news{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.data{
+    font-weight: bold;
+    margin: 30px
+}
+
+.news{
+    margin: 30px
+}
+
+.input{
+    padding-top: 40px
+}
+

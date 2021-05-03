@@ -1,0 +1,12 @@
+.postsBlock{
+    padding: 10px;
+}
+
+.textarea textarea{
+    width: 70%
+}
+
+.button{
+    margin-top:10px;
+    margin-bottom: 10px;
+}
