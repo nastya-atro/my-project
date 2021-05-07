@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { login, stopSubmit } from '../../redux/authReducer';
 import { Redirect } from 'react-router';
 import s from './LoginPage.module.css';
+import { getCaptcha } from './../../redux/authReducer';
+
 
 const validateForm = values => {
     const errors = {};
@@ -28,7 +30,7 @@ const validateForm = values => {
 const Login = (props) => {
     const submit = (values, onSubmitProps) => {
 
-        props.login(values.email, values.password, values.checkbox)
+        props.login(values.email, values.password, values.checkbox, values.captcha)
         onSubmitProps.setSubmitting(false);
 
     }
@@ -38,8 +40,9 @@ const Login = (props) => {
 
 
     return (
-        <div>
-            <h1>Login</h1>
+        <div className={s.login_wrapper}>
+            <h1>Welcome to Chevos'ka social network !</h1>
+            
 
             <div>
                 <Formik
@@ -56,25 +59,35 @@ const Login = (props) => {
                         isValid,
 
                         isSubmitting }) => (
-                        <Form onSubmit={handleSubmit}>
-                            <div>
-                                <Field onChange={handleChange} onBlur={handleBlur} type="email" name="email" placeholder="Login" value={values.email} />
-                                {errors.email && touched.email && errors.email}
-                            </div>
-                            <div>
-                                <Field onChange={handleChange} onBlur={handleBlur} type="password" name="password" placeholder="Password" value={values.password} />
-                                {errors.password && touched.password && errors.password}
-                            </div>
-                            <div>
-                                <Field onChange={handleChange} type="checkbox" name="checkbox" /> remember me
+                        <div className={s.loginForm}>
+
+                            <Form onSubmit={handleSubmit}>
+                                <div>
+                                    <Field onChange={handleChange} onBlur={handleBlur} type="email" name="email" placeholder="Login" value={values.email} />
+                                    <div className={s.error}> {errors.email && touched.email && errors.email}</div>
+                                </div>
+                                <div>
+                                    <Field onChange={handleChange} onBlur={handleBlur} type="password" name="password" placeholder="Password" value={values.password} />
+                                    <div className={s.error}>{errors.password && touched.password && errors.password} </div>
+                                </div>
+                                <div className={s.checkbox}>
+                                    <Field onChange={handleChange} type="checkbox" name="checkbox" /> remember me
 
                         </div>
-                       {/*<div className={s.someerror}>{props.error}</div>*/} 
+                                {/*<div className={s.someerror}>{props.error}</div>*/}
 
-                            <button type="submit" disabled={!isValid || isSubmitting}>
-                                Submit
+                                {props.captcha && <img src={props.captcha} />}
+                                {props.captcha && <Field onChange={handleChange} type="text" name="captcha" />}
+
+                                <div className={s.buttonLogin}>
+                                    <button type="submit" disabled={!isValid || isSubmitting}>
+                                        Log in
            </button>
-                        </Form>
+                                </div>
+
+                            </Form>
+                        </div>
+
                     )}
                 </Formik>
             </div>
@@ -88,9 +101,9 @@ const Login = (props) => {
 const mapStateToProps = (state) => {
     return {
         isAuth: state.auth.isAuth,
-    error: state.auth.error
+        captcha: state.auth.captcha
     }
-    
+
 }
 
-export default connect(mapStateToProps, {login})(Login)
+export default connect(mapStateToProps, { login, getCaptcha })(Login)

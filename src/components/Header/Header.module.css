@@ -1,19 +1,83 @@
 .header{
+    font-family: 'Inconsolata', monospace;
+    font-size: 15px;
+    color: black;
+    text-transform: uppercase;
     grid-area: h;
-    background-color: burlywood;
-  }
-  
-  .header img{
-    width: 40px;
-    height: 40px;
+    background-color: white;
+    padding: 15px 20px;
+    
   }
 
+  .header img{
+    max-height: 80px;
+    margin-top: -20px; 
+  }
+
+
+  
   .loginBlock{
     
     float: right
 
 }
 
+
+
+ 
 .loginBlock a{
   color: white;
 }
+
+.loginBlock_logout{
+  margin-right: 100px;
+}
+
+span.login{
+  margin-right: 40px;
+  position: relative;
+  top: -30px
+}
+
+span.userImg img{
+  max-width: 60px;
+  padding-top: 5px;
+  padding-right: 20px;
+}
+
+span.buttonLogout button{
+  position:absolute;
+  top: 15px;
+  width: 80px;
+  text-transform: uppercase;
+  padding: 5px 2px;
+  background-color: white;
+  border: 1px solid #0fc19e;
+}
+
+
+span.buttonLogout button:hover{
+  
+  background-color: #03645188;
+}
+
+.buttonLogin{
+  margin-top: 10px;
+}
+
+.buttonLogin a{
+  margin-right: 20px;
+  width: 100px;
+  color: white;
+  text-decoration: none;
+  padding: 15px; 
+  margin-top: 30px;
+  background-color: #036451a1;
+}
+
+.buttonLogin a:hover{
+  
+  opacity: 0.5;
+}
+
+

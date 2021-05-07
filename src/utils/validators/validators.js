@@ -5,9 +5,9 @@ export const validateForm = values => {
     if (!values.newMessage) {
       errors.newMessage = 'Required';
     } else if (
-        values.newMessage.length>10
+        values.newMessage.length>50
     ) {
-      errors.newMessage = 'Write more then 10 sumbols';
+      errors.newMessage = 'Please, dont write more then 50 sumbols';
     }
     return errors;
   }

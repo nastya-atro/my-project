@@ -1,7 +1,73 @@
-.picture img{
-    width: 100%
+.description{
+    position: relative;
 }
 
-.description{
-    padding: 10px;
+.backgroundImg{
+    height: 200px;
+    width: 100%;
+    background-color: #03645188;
+    position: relative;
+    
 }
+
+img.photo{
+    max-width: 300px;
+    display:block;
+    position:relative;
+    top: -150px;
+    margin:auto;
+    border-radius: 50%;
+    border: 6px solid white;
+  
+} 
+
+.editPhoto{
+    position: absolute;
+    top: 200px;
+    right: 150px;
+    
+}
+
+.editPhoto_Wrapper{ 
+    position: relative;
+}
+
+.editPhoto_input{
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.editPhoto_label{
+    position: absolute;
+    top: -30px;
+    text-transform: uppercase;
+    padding: 10px; 
+    color: #036451a1;
+    border: none;
+    transition: transform 1s;
+}
+
+
+.editPhoto_label:hover{
+    transform: scale(2)
+}
+ 
+.form_wrapper{
+
+   text-align: center;
+   margin-top: -100px;
+   font-family: 'Ubuntu', sans-serif;
+   color:rgba(0, 0, 0, 0.466);
+}
+
+
+
+
+  
+
+
+
+
+
+

@@ -11,7 +11,7 @@ const TOOGLE_IS_FOLLOWING_PROGRESS = 'users/TOOGLE_IS_FOLLOWING_PROGRESS'
 
 let initialState = {
     users: [],
-    pageSize: 50,
+    pageSize: 48,
     totalUsersCount: 0,
     currentPage: 1,
     isfetcing: true,

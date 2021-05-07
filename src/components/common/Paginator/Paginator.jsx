@@ -10,7 +10,7 @@ const Paginator=({totalUsersCount, pageSize, currentPage, onPageChanged, portion
     for (let i = 1; i <= pageNumber; i++) {
         page.push(i)
     }
-
+ 
     let portionCount=Math.ceil(pageNumber/portionSize);
     let [numberPortion, setnumberPortion] = useState(1)
     let leftPortionPageNumber=(numberPortion-1)*portionSize+1;
@@ -19,7 +19,10 @@ const Paginator=({totalUsersCount, pageSize, currentPage, onPageChanged, portion
 
     return(
  <div className={s.paginator}>
-     {numberPortion>1 &&<button onClick={()=>{setnumberPortion(numberPortion-1)}}>Prev</button>}
+     {numberPortion>1 &&<button onClick={()=>{setnumberPortion(numberPortion-1)}}>
+     <i class="fas fa-angle-double-left"></i>
+         
+         </button>}
             {page
             .filter(p=> p >= leftPortionPageNumber && p <=rightPortionPageNumber)
             .map(p => {
@@ -30,7 +33,9 @@ const Paginator=({totalUsersCount, pageSize, currentPage, onPageChanged, portion
                     onClick={(e) => { onPageChanged(p) }}
                 >{p} </span>
             })}
-    {numberPortion<portionCount && <button onClick={()=>{setnumberPortion(numberPortion+1)}}>Next</button>}
+    {numberPortion<portionCount && <button onClick={()=>{setnumberPortion(numberPortion+1)}}>
+    <i class="fas fa-angle-double-right"></i>
+        </button>}
         </div>
     )
 }

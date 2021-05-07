@@ -1,7 +1,48 @@
-.someerror{
-    border: solid 2px white;
-    padding: 5px;
-    color: white;
-    background-color: black;
-    width: 30%
+.login_wrapper{
+    font-family: 'Ubuntu', sans-serif;
+    color:rgba(0, 0, 0, 0.671);
+    margin: 20px;
+    padding: 40px;
+    text-align: center;
+    background-color: #03645188;;
+}
+
+h3{
+    text-transform: uppercase;
+    color:rgba(0, 0, 0, 0.527);
+
+}
+
+.loginForm input{
+    box-sizing: border-box;
+    width: 100%;
+    height: 30px;
+    
+    background-color: white;
+    border: none;
+    padding: 0 10px;
+    color: black;
+}
+.error{
+    color: rgba(255, 0, 0, 0.637);
+    font-size: 13px;
+    text-align: start;
+    padding: 5px 0 
+}
+
+.buttonLogin button{
+    font-size: 15px;
+    width: 150px;
+    text-transform: uppercase;
+    padding: 15px; 
+    margin-top: 20px;
+    background-color: white;
+    color: #036451a1;
+    border: none;
+    transition:  background-color 1s, color 1s;
+}
+
+.buttonLogin button:hover{
+    background-color: #036451c2;
+    color: white
 }

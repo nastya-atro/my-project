@@ -1,29 +1,28 @@
 import { authApi } from "../api/api";
+import { captchaApi } from './../api/api';
 
 let SET_USER_DATA = 'SET_USER_DATA'
-//let STOP_SUBMIT = 'STOP_SUBMIT'
+let GET_CAPTCHA = 'GET_CAPTCHA'
 
 let initialState = {
     id: null,
     email: null,
     login: null,
     isAuth: false,
-   // error: "i"
+    captcha: null
+
 }
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USER_DATA:
+        case GET_CAPTCHA:
             return {
                 ...state,
                 ...action.payload
             }
 
-      //  case STOP_SUBMIT:
-            return {
-                ...state,
-                error: state.action.error
-            }
+
 
         default:
             return state;
@@ -39,9 +38,13 @@ export const setUserData = (id, email, login, isAuth) => ({
     payload: { id, email, login, isAuth }
 })
 
-//export const stopSubmit = (error) => ({
-//    type: STOP_SUBMIT, error
-//})
+export const getCaptchaSuccess = (captcha) => ({
+    type: GET_CAPTCHA,
+    payload: { captcha }
+})
+
+
+
 
 
 export const getLogin = () => {
@@ -49,7 +52,7 @@ export const getLogin = () => {
         authApi.getLogin()
             .then(response => {
 
-                if (response.data.resultCode === 0) { 
+                if (response.data.resultCode === 0) {
                     let { id, email, login } = response.data.data;
                     dispatch(setUserData(id, email, login, true))
                 }
@@ -57,19 +60,27 @@ export const getLogin = () => {
     }
 }
 
-export const login = (email, password, rememberMe) => (dispatch)=> {
-    
-    authApi.login(email, password, rememberMe)
-    
+export const login = (email, password, rememberMe, captcha) => (dispatch) => {
+
+    authApi.login(email, password, rememberMe, captcha)
+
         .then(response => {
             if (response.data.resultCode === 0) {
                 dispatch(getLogin())
-            } else{
-              //  let message = response.data.messages.length > 0 ? response.data.messages[0] : "some error"
-            //dispatch(stopSubmit(response.data.messages[0]))
+            } else if(response.data.resultCode === 10){
+                dispatch(getCaptcha())
             }
         })
-    }
+}
+
+export const getCaptcha= () => async (dispatch) => {
+
+   const response=await captchaApi.getCaptcha()
+   const urlCaptcha=response.data.url
+   dispatch(getCaptchaSuccess(urlCaptcha))
+
+      
+}
 
 export const logout = () => {
     return (dispatch) => {

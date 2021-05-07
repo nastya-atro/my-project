@@ -3,11 +3,18 @@ import s from './../Dialog.module.css'
 
 
 
-const Message =(props)=>{
-    return(
-        <div className={s.dialog}>
-                   {props.message} 
-                </div>
+const Message = (props) => {
+    return (
+        <div className={s.dialogMessage}>
+            <div className={s.dialog_topItem}>
+                <div>{props.name}</div>
+                <div><img src={props.photo}></img></div>
+                <div>{props.time}</div>
+            </div>
+
+
+            <div className={s.doalog_bottomItem}>{props.message} </div>
+        </div>
     )
 }
 

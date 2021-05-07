@@ -5,8 +5,8 @@ import { Formik, Form, Field } from 'formik';
 
 const validateForm = values => {
     const errors = {};
-    if (values.newPostText.length > 50) {
-        errors.newPostText = 'Please write maximum 50 simbols';
+    if (values.newPostText.length > 700) {
+        errors.newPostText = 'Please write maximum 700 simbols';
     } else if (
         values.newPostText.length < 1
     ) {
@@ -26,15 +26,15 @@ const MyPosts = (props) => {
 
     }
 
-    let postElement = props.posts.map(el => <Post message={el.message} key={el.id} likesNumber={el.likesNumber} />)
+    let postElement = props.posts.map(el => <Post profile={props.profile} message={el.message} key={el.id} likesNumber={el.likesNumber} />)
 
     return (
         <div className={s.postsBlock}>
-            <h3>My posts</h3>
+            <h3>My blog</h3>
             <div>
-               
+
                 <Formik
-                    initialValues={{ newPostText: 'add new post'}}
+                    initialValues={{ newPostText: '' }}
                     validate={validateForm}
                     onSubmit={addNewPost}
                 >
@@ -47,13 +47,19 @@ const MyPosts = (props) => {
 
                         isSubmitting }) => (
                         <Form onSubmit={handleSubmit}>
-                            <div>
-                                <Field onChange={handleChange} onBlur={handleBlur} type="textarea" name="newPostText" value={values.newPostText} />
-                                {errors.newPostText && touched.newPostText && errors.newPostText}
+                            <div className={s.inputPostBlock}>
+                                <div className={s.inputPost}>
+                                    <Field component="textarea" 
+                                    onChange={handleChange} onBlur={handleBlur} type="textarea" name="newPostText" 
+                                    placeholder='Write new post here...' />
+                                    <div className={s.error}>{errors.newPostText && touched.newPostText && errors.newPostText}</div>
+                                </div>
+                                <div className={s.buttonPost}>
+                                    <button type="submit" disabled={isSubmitting}> Add post </button>
+                                </div>
                             </div>
-                            <button type="submit" disabled={isSubmitting}>
-                            Add post
-           </button>
+
+
                         </Form>
                     )}
                 </Formik>

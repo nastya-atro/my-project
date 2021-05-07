@@ -4,16 +4,20 @@ import Header from './Header';
 import {logout} from './../../redux/authReducer';
 
 class HeaderContainer extends React.Component {
+    
     render() {
+        debugger
         return (
-            <Header {...this.props} />
+            
+            <Header {...this.props}/>
         )
     } 
 }
 
 const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
-    login: state.auth.login
+    login: state.auth.login,
+    profile: state.profilePage.profile,
 
 })
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import s from './ProfileForm.module.css'
 
 const StatusHook = (props) => {
 
@@ -26,14 +27,14 @@ const StatusHook = (props) => {
 
 
     return (
-        <div>
+        <div> 
             {!editMode &&
                 <div>
                     <span  onClick={activateEditMode}>{props.status ||'----'}</span>
                 </div>}
             {editMode &&
-                <div>
-                    <input onChange={onStatusChange} autoFocus={true} onBlur={deactivateEditMode} value={status} />
+                <div className={s.status_input}>
+                    <input type='text' onChange={onStatusChange} autoFocus={true} onBlur={deactivateEditMode} value={status} />
                 </div>}
 
         </div>

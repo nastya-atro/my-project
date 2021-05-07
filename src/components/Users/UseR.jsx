@@ -1,32 +1,40 @@
 import React from 'react';
 import s from './Users.module.css'
-import userPhto from '../../assets/images/user.img'
+import userPhto from '../../assets/images/user.png'
 import { NavLink } from 'react-router-dom';
 import Paginator from '../common/Paginator/Paginator';
 
 
-let UseR = ({user, followingInProgress, follow, unfollow}) => {
-let u=user;
+let UseR = ({ user, followingInProgress, follow, unfollow }) => {
+    let u = user;
 
     return (
-        <div >
-            <span>
-                <div>
+        <div className={s.user_wrapper}>
+            
+                <div className={s.user_photo}>
                     <NavLink to={'/profile/' + u.id}>
-                        <img src={u.photos.small != null ? u.photos.small : userPhto} className={s.userPhoto}></img>
+                        <img src={u.photos.small != null ? u.photos.small : userPhto}></img>
                     </NavLink>
 
                 </div>
-                <div>
+
+            
+            
+                <div className={s.user_name}>
+                    <div>{u.name}</div>
+                </div>
+            
+            
+                <div className={s.user_button}>
                     {u.followed
-                        ? <button disabled={followingInProgress.some(id => id === u.id)} onClick={() => {
+                        ? <button className={s.user_buttonUnfollow} disabled={followingInProgress.some(id => id === u.id)} onClick={() => {
                             unfollow(u.id)
 
                         }
 
                         }>Unfollow</button>
 
-                        : <button disabled={followingInProgress.some(id => id === u.id)} onClick={() => {
+                        : <button className={s.user_buttonFollow} disabled={followingInProgress.some(id => id === u.id)} onClick={() => {
                             follow(u.id)
 
                         }
@@ -34,17 +42,7 @@ let u=user;
 
                         }>Follow</button>}
                 </div>
-            </span>
-            <span>
-                <span>
-                    <div>{u.name}</div>
-                    <div>{u.status}</div>
-                </span>
-                <span>
-                    <div>{"u.location.country"}</div>
-                    <div>{"u.location.city"}</div>
-                </span>
-            </span>
+            
         </div>
 
     )

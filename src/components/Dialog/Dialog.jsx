@@ -29,14 +29,14 @@ const Dialog = (props) => {
 
     let state = props.messagesPage;
 
-    let dialogElement = state.dialogs.map(d => <DialogItem name={d.name} key={d.id} id={d.id} />)
-    let messageElement = state.messages.map(m => <Message message={m.message} key={m.id} />)
+    let dialogElement = state.dialogs.map(d => <DialogItem name={d.name} key={d.id} id={d.id} photo={d.photo} />)
+    let messageElement = state.messages.map(m => <Message photo={m.photo} name={m.name} time={m.time} message={m.message} key={m.id} />)
     
 
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItem}>
-                {dialogElement}
+                {dialogElement} 
             </div>
             <div className={s.messages}>
                 {messageElement}
@@ -57,17 +57,20 @@ const Dialog = (props) => {
                             handleBlur,
                             handleSubmit,
                             isSubmitting }) => (
-                            <Form onSubmit={handleSubmit}>
+                                <div className={s.messageForm}>
+                                     <Form onSubmit={handleSubmit}>
                                 <Field  className={errors.newMessage && touched.newMessage ? s.errorform : ""} component="textarea" onChange={handleChange} onBlur={handleBlur}
                                  placeholder="Write your message" name="newMessage" value={values.textarea}/>
                                 
                                 {errors.newMessage && touched.newMessage && <div className={s.error}>{errors.newMessage}</div>}
-                                <div>
+                                <div className={s.messageButton}>
                                     <button type="submit" disabled={isSubmitting}>
                                         Send messages
                                     </button>
                                 </div>
                             </Form>
+                                </div>
+                           
                         )}
                     </Formik>
 

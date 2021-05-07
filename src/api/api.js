@@ -23,20 +23,28 @@ export const usersApi ={
         return instanse.get(`profile/`+userId)
     }
 
-}
+} 
 
 export const authApi={
     getLogin(){
         return instanse.get(`auth/me`)
     },
-    login(email, password, rememberMe){
-        return instanse.post(`auth/login`, {email, password, rememberMe})
+    login(email, password, rememberMe, captcha=null){
+        return instanse.post(`auth/login`, {email, password, rememberMe, captcha})
     },
     logout(){
         return instanse.delete(`auth/login`)
     }
 
 }
+
+export const captchaApi={
+    getCaptcha(){
+        return instanse.get(`security/get-captcha-url`)
+    }
+}
+
+
 
 export const profileApi={
     getStatus(userId){
@@ -44,35 +52,16 @@ export const profileApi={
     },
     updateStatus(status){
         return instanse.put(`profile/status`, {status: status})
+    },
+    putPhotos(photos){
+        const formData= new FormData();
+        formData.append("image", photos)
+        return instanse.put(`profile/photo`, formData, {
+            headers: {'Content-Type': 'multipart/form-data'}
+        })
+    },
+    changeProfile(profile){
+        return instanse.put(`profile`, profile)
     }
 }
 
-export const trenirovkaApi={
-    getUsersTr(pageSize, selectedPage){
-        return instanse.get(`users?count=${pageSize}&page=${selectedPage}`)
-    },
-    follow(id){
-        return instanse.post(`follow/${id}`, {})
-    },
-    unfollow(id){
-        return instanse.delete(`follow/${id}`, {})
-    },
-    getProfilePage(userId){
-        return instanse.get (`profile/` + userId)
-    },
-    getAuth(){
-        return instanse.get(`auth/me`)
-    },
-    getStatus(userId){
-        return instanse.get(`profile/status/`+ userId)
-    },
-    updateStatus(status){
-        return instanse.put(`profile/status`, {status: status})
-    },
-    login(email, password, rememberMe=false){
-        return instanse.post(`auth/login`, {email, password, rememberMe})
-    },
-    logout(){
-        return instanse.delete(`auth/login`)
-    }
-}
