@@ -2,14 +2,13 @@ import React from 'react';
 import s from './FormControls.module.css'
 
 export const Textarea = (props) => {
-    debugger
-    let error=props.form.errors.newMessage && props.form.touched.newMessage;
-    return (<div className={ error && s.error}>
+    let error = props.form.errors.newMessage && props.form.touched.newMessage;
+    return (<div className={error && s.error}>
         <div>
-            <textarea {...props.field}/>
+            <textarea {...props.field} />
         </div>
         {error && <span>{props.form.errors.newMessage}</span>}
-        
+
     </div>
     )
-        }
+}

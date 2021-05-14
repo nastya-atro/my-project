@@ -3,48 +3,40 @@ import { NavLink } from 'react-router-dom';
 import s from './Navbar.module.css';
 
 
-const Navbar = () => {
+const Navbar = (props) => {
     return (
         <nav className={s.nav}>
-
             <div className={`${s.item}`}>
                 <NavLink to="/profile" activeClassName={s.active}>
-                    <i class="fas fa-house-user"></i>
+                    <i className="fas fa-house-user"></i>
                     <div>Profile</div>
-
                 </NavLink>
             </div>
-
             <div className={s.item}>
                 <NavLink to="/users" activeClassName={s.active}>
-                    <i class="fas fa-users"></i>
+                    <i className="fas fa-users"></i>
                     <div>Users</div></NavLink>
             </div>
-
+            <div className={s.item}>
+                <NavLink to="/friendpage" activeClassName={s.active}>
+                    <i className="fas fa-smile"></i>
+                    <div>My Friends</div></NavLink>
+            </div>
             <div className={`${s.item}`}>
                 <NavLink to="/dialog" activeClassName={s.active}>
-                    <i class="fas fa-envelope"></i>
+                    <i className="fas fa-envelope"></i>
                     <div>Messages</div></NavLink>
             </div>
-
             <div className={s.item}>
                 <NavLink to="/music" activeClassName={s.active}>
-                    <i class="fas fa-headphones-alt"></i>
+                    <i className="fas fa-headphones-alt"></i>
                     <div>Music</div></NavLink>
             </div>
-
             <div className={s.item}>
                 <NavLink to="/setting" activeClassName={s.active}>
-                    <i class="fas fa-sliders-h"></i>
+                    <i className="fas fa-sliders-h"></i>
                     <div>Setting</div></NavLink>
             </div>
-
-
-
-
-
-
-
         </nav>
     )
 }

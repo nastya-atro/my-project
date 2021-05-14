@@ -6,8 +6,7 @@
     height: 200px;
     width: 100%;
     background-color: #03645188;
-    position: relative;
-    
+    position: relative; 
 }
 
 img.photo{
@@ -18,14 +17,12 @@ img.photo{
     margin:auto;
     border-radius: 50%;
     border: 6px solid white;
-  
 } 
 
 .editPhoto{
     position: absolute;
     top: 200px;
     right: 150px;
-    
 }
 
 .editPhoto_Wrapper{ 
@@ -48,13 +45,11 @@ img.photo{
     transition: transform 1s;
 }
 
-
 .editPhoto_label:hover{
     transform: scale(2)
 }
  
 .form_wrapper{
-
    text-align: center;
    margin-top: -100px;
    font-family: 'Ubuntu', sans-serif;

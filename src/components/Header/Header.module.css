@@ -9,22 +9,15 @@
     
   }
 
-  .header img{
+.header img{
     max-height: 80px;
     margin-top: -20px; 
   }
 
-
-  
-  .loginBlock{
-    
+.loginBlock{
     float: right
+ }
 
-}
-
-
-
- 
 .loginBlock a{
   color: white;
 }
@@ -40,9 +33,10 @@ span.login{
 }
 
 span.userImg img{
-  max-width: 60px;
-  padding-top: 5px;
-  padding-right: 20px;
+  border-radius: 50%;
+  max-width: 50px;
+  margin-top: -5px;
+  margin-right: 10px;
 }
 
 span.buttonLogout button{
@@ -55,9 +49,7 @@ span.buttonLogout button{
   border: 1px solid #0fc19e;
 }
 
-
 span.buttonLogout button:hover{
-  
   background-color: #03645188;
 }
 
@@ -76,7 +68,6 @@ span.buttonLogout button:hover{
 }
 
 .buttonLogin a:hover{
-  
   opacity: 0.5;
 }
 

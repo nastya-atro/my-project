@@ -8,14 +8,11 @@
     display: grid;
     grid-template-rows: 1fr 5fr 1fr;
     border: none;
-
-
 }
 
 .postBlock_img img{
     max-width: 70px;
-    border-radius: 50%
-    
+    border-radius: 50%;
 } 
 
 .postBlock_img{
@@ -27,7 +24,6 @@
     "h b";
     grid-template-columns: 3fr 2fr;
     grid-template-rows: 1fr 1fr;
-
 }
 
 .name{
@@ -36,28 +32,21 @@
 
 .time{
     grid-area: b;
-    
 }
 
 .img{
     grid-area: h;
-
-    
 }
-
 
 .postBlock_post{
     background-color: white;
-    
     overflow: hidden;
     text-overflow: ellipsis;
-   
     text-align: center;
     vertical-align: middle;
     padding: 10px;
     color:  black
 }
-
 
 .postBlock_likes{
     background-color: #03645188;

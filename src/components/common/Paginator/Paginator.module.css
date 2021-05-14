@@ -3,7 +3,6 @@
     margin-left: 40px;
     display: flex;
     width: 70%;
-    
     justify-content: space-between;
 }
 
@@ -17,7 +16,6 @@
     background-color: #03645188;
     font-weight: bold;
     color: white
-    
  }
 
 .activePage {
