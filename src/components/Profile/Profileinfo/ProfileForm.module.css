@@ -1,0 +1,75 @@
+.form_block_name_status{
+    background-color: white;
+    margin: 0 80px;
+    padding: 15px 25px;
+    text-align: left;
+    position: relative;
+    margin-bottom: 20px
+}
+
+.fullName{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.status{
+    display: inline-block;
+    min-width: auto;
+    background-color: rgba(189, 189, 189, 0.233);
+    padding: 5px;
+}
+ 
+.status_input input{
+    box-sizing: border-box;
+    width: 800px;
+    height: 30px;
+    background-color: white;
+    border: none;
+    padding: 0 10px;
+    color: black
+}
+
+.button_edit{
+    position: absolute;
+    font-size: 10px;
+    right: 20px;
+    text-transform: uppercase;
+    padding: 10px; 
+    background-color: #036451a1;
+    color: white;
+    border: none;
+    transition: background-color 1s, border 1s, color 1s, transform 1s;
+}
+
+.button_edit:hover{
+    background-color: rgba(189, 189, 189, 0.233);
+    color: #036451a1;
+    transform: scale(1.1)
+}
+
+.form_block_job_contacts{
+    background-color: white;
+    margin: 0 80px;
+    padding: 15px 25px;
+    text-align: left;
+    position: relative;
+}
+
+.form_block_job_contacts h3{
+    color: #036451a1;
+    font-size: 17px;
+    font-weight: bold; 
+}
+
+
+.form_block_job_contacts b{
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 10px;
+    padding-bottom: 5px;
+}
+
+
+
+

@@ -1,0 +1,18 @@
+.footer{
+    grid-area: a;
+}
+
+.footer_contacts{
+    float: right;
+    margin-right: 40px;
+    font-size: 13px;
+    text-align: end;
+}
+
+.create{
+    text-transform: uppercase;
+}
+
+.footer_contacts:hover{
+    transform: scale(1.1);
+}

@@ -1,0 +1,63 @@
+.formChange_wrapper{
+    background-color: #03645162;
+    margin: 0 80px;
+    padding: 15px 25px;
+    text-align: left;
+    position: relative;
+    margin-bottom: 20px;
+    color: black
+}
+
+.formChange_wrapper b{
+    display: inline-block;
+    font-weight: normal;
+    padding: 5px 0;
+}
+
+.formChange_wrapper h3{
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+} 
+
+.formChange_wrapper input{
+    box-sizing: border-box;
+    width: 100%;
+    height: 30px;
+    background-color: white;
+    border: none;
+    padding: 0 10px;
+    color: black
+}
+
+.contacts input{
+    box-sizing: border-box;
+    width: 50%;
+    height: 30px;
+    background-color: white;
+    border: none;
+    padding: 0 10px;
+    color: black
+}
+
+.buttonSave{
+    position: absolute;
+    font-size: 15px;
+    right: 20px;
+    bottom: 20px;
+    width: 100px;
+    text-transform: uppercase;
+    padding: 10px;
+    background-color: white;
+    color: #036451a1;
+    border: none;
+    transition: background-color 1s, border 1s, color 1s, transform 1s;
+}
+
+.buttonSave:hover{
+    background-color: #036451a1;
+    border: 1 px solid white;
+    color: white;
+    transform: scale(1.1)
+}
+

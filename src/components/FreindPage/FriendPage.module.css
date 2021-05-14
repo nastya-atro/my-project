@@ -1,0 +1,60 @@
+.friendsPage_wrapper{
+    font-family: 'Ubuntu', sans-serif;
+    
+}
+
+.friendsPage_wrapper h3{
+    text-align: center; 
+}
+
+.friendPage_flex{
+    text-align: center;
+}
+
+.friend_info{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    background-color: rgba(255, 255, 255, 0.747);
+    text-align: center;
+    margin: 20px 150px;  
+}
+
+.friend_info img{
+    max-width: 80px;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+.friend_info_name{
+    font-weight: bold;
+    padding: 5px;
+    background-color: #0364513b;;
+}
+
+.friend_info_status{
+    font-size: 13px;
+    background-color: rgba(255, 255, 255, 0.644)
+}
+
+button.friendButtonFollow{
+    background-color:  #03645186;
+    padding: 5px;
+    border: none;
+    color: white;
+}
+
+.friendButtonMessage a{
+    text-decoration: none;
+    border: none;
+    color: #03645186;
+}
+
+.friendButtonMessage a:hover{
+    color: #036451;
+}
+
+span.friendButtonMessage{
+    background-color:  #ffffff;
+    padding: 5px;
+}

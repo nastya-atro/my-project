@@ -1,0 +1,10 @@
+.preloader_wrapper{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.preloader_wrapper img{
+    width: 100px;
+    height: 100px;
+}
+
