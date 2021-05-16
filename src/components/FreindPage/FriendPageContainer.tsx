@@ -46,7 +46,6 @@ class FriendPageContainer extends React.Component<PropsType>{
             changePageFriends={this.changePageFriends} 
             totalFriendCount={this.props.totalFriendCount} 
             currentPage={this.props.currentPage}
-            friend={this.props.friend}
             unfollow={this.props.unfollow}
             />
           </>  

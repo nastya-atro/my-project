@@ -46,5 +46,5 @@ export type MessagesType={
     message: string
     name: string
     time: string
-    photo: any
+    photo: string
 }

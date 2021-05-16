@@ -10,9 +10,11 @@ let initialState = {
     totalUsersCount: 0,
     currentPage: 1,
     isfetcing: true,
-    followingInProgress: [] as Array<number> //array of users id
+    followingInProgress: [] as Array<number>, //array of users id
+    term: '',
+    friend: null as null | boolean
 };
-
+ 
 type InitialStateType = typeof initialState;
 
 const usersReducer = (state: InitialStateType = initialState, action: ActionsTypes): InitialStateType => {
@@ -71,6 +73,14 @@ const usersReducer = (state: InitialStateType = initialState, action: ActionsTyp
                         state.followingInProgress.filter(id => id !== action.userId)
                 }
             }
+
+        case 'SEARCH_USERS':{
+            return {
+                ...state, 
+                term: action.term,
+                friend: action.friend
+            }
+        }
         default:
             return state
     }
@@ -83,17 +93,20 @@ export const actions = {
     setCurrentPage: (currentPage: number) => ({ type: 'SET_CURRENT_PAGE', currentPage } as const),
     setTotalCount: (totalCount: number) => ({ type: 'SET_TOTAL_CURRENT', totalCount } as const),
     toogleIsFetcing: (isfetcing: boolean) => ({ type: 'TOOGLE_IS_FETCING', isfetcing } as const),
+    setSearchUsers:(term: string, friend: null|boolean)=>({type: 'SEARCH_USERS', term, friend}as const),
     tooggleFollowingProgress: (isfetcing: boolean, userId: number) => ({ type: 'TOOGLE_IS_FOLLOWING_PROGRESS', isfetcing, userId } as const)
+
 }
 
 type ActionsTypes = CommonActionsTypes<typeof actions>
 type ThunkType = CommonThunkType<ActionsTypes>
 
-export const getUsers = (currentPage: number, pageSize: number): ThunkType => {
+export const getUsers = (currentPage: number, pageSize: number, term:string, friend: null|boolean): ThunkType => {
     return async (dispatch) => {
         dispatch(actions.toogleIsFetcing(true))
         dispatch(actions.setCurrentPage(currentPage))
-        let data = await usersApi.getUsers(currentPage, pageSize)
+        dispatch(actions.setSearchUsers(term, friend))
+        let data = await usersApi.getUsers(currentPage, pageSize, term, friend)
         dispatch(actions.toogleIsFetcing(false))
         dispatch(actions.setUsers(data.items))
         dispatch(actions.setTotalCount(data.totalCount))

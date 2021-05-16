@@ -9,8 +9,8 @@ type GetUsersType={
 }
 
 export const usersApi = {
-    getUsers(currentPage:number, pageSize:number) {
-        return instanse.get<GetUsersType>(`users?page=${currentPage}&count=${pageSize}`)
+    getUsers(currentPage:number, pageSize:number, term:string, friend: null|boolean=null) {
+        return instanse.get<GetUsersType>(`users?page=${currentPage}&count=${pageSize}&term=${term}`+ (friend===null ? '':`&friend=${friend}`))
             .then(response => {
                 return response.data
             })

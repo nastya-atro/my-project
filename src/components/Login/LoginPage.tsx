@@ -1,24 +1,15 @@
 import React from 'react';
 import { Formik, Form, Field, FormikErrors} from 'formik';
-import { connect } from 'react-redux';
+import {  useDispatch, useSelector } from 'react-redux';
 import { login } from '../../redux/authReducer';
 import { Redirect } from 'react-router';
 import s from './LoginPage.module.css';
-import { getCaptcha } from '../../redux/authReducer';
 import { AppStateType } from '../../redux/redux-store';
 
 
-type MapStateToPropsType = {
-    isAuth: boolean
-    captcha: string | null
-}
 
-type MapDispatchToPropsType = {
-    login:(email: string, password: string, rememberMe: boolean, captcha: string)=>void
-    getCaptcha:()=>void
-}
-type OwnPropsType={
-}
+
+
 
 type ValuesType={
     email:string
@@ -26,10 +17,9 @@ type ValuesType={
     captcha: string 
     checkbox: any
 }
-
 //type ValuesTypeKeys= Extract<keyof ValuesType, string>
 
-type PropsType = MapStateToPropsType & MapDispatchToPropsType &OwnPropsType
+
 
 const validateForm = (values:ValuesType) => {
     const errors:FormikErrors<ValuesType>={};
@@ -48,12 +38,19 @@ const validateForm = (values:ValuesType) => {
     return errors;
 }
 
-const Login:React.FC<PropsType> = (props) => {
+const LoginPage:React.FC = () => {
+
+const isAuth=useSelector((state:AppStateType)=>{return state.auth.isAuth})
+const captcha=useSelector((state:AppStateType)=>{return state.auth.captcha})
+
+const dispatch=useDispatch()
+
+
     const submit = (values:ValuesType, onSubmitProps:any) => {
-        props.login(values.email, values.password, values.checkbox, values.captcha)
+        dispatch(login(values.email, values.password, values.checkbox, values.captcha))
         onSubmitProps.setSubmitting(false);
     }
-    if (props.isAuth) {
+    if (isAuth) {
         return <Redirect to={"/profile"} />
     }
 
@@ -87,9 +84,9 @@ const Login:React.FC<PropsType> = (props) => {
                                 <div className={s.checkbox}>
                                     <Field onChange={handleChange} type="checkbox" name="checkbox" /> remember me
                         </div>
-                                {/*<div className={s.someerror}>{props.error}</div>*/}
-                                {props.captcha && <img src={props.captcha} alt="description" />}
-                                {props.captcha && <Field onChange={handleChange} type="text" name="captcha" />}
+                                
+                                {captcha && <img src={captcha} alt="description" />}
+                                {captcha && <Field onChange={handleChange} type="text" name="captcha" />}
                                 <div className={s.buttonLogin}>
                                     <button type="submit" disabled={!isValid || isSubmitting}>
                                         Log in
@@ -104,12 +101,4 @@ const Login:React.FC<PropsType> = (props) => {
     )
 }
 
-const mapStateToProps = (state: AppStateType) => {
-    return {
-        isAuth: state.auth.isAuth,
-        captcha: state.auth.captcha
-    }
-}
-
-export default connect<MapStateToPropsType, MapDispatchToPropsType, OwnPropsType, AppStateType>
-(mapStateToProps, { login, getCaptcha })(Login)
+export default LoginPage

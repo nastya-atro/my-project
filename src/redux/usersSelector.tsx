@@ -18,3 +18,11 @@ export const selectorIsfetcing=(state:AppStateType)=>{
 export const selectorFollowingInProgress=(state:AppStateType)=>{
     return state.usersPage.followingInProgress
 }
+
+export const selectorTerm=(state:AppStateType)=>{
+    return state.usersPage.term
+}
+
+export const selectorFriend=(state:AppStateType)=>{
+    return state.usersPage.friend
+}

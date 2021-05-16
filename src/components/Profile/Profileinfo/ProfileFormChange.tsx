@@ -1,19 +1,14 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import s from './ProfileFormChange.module.css'
-import { ContactsType, PhotosType, ProfileType } from '../../../types/types';
+import { ContactsType, ProfileType } from '../../../types/types';
 
 type PropsTypes={
     profile: ProfileType
     saveForm:(values: any, { setSubmitting }: { setSubmitting: any; })=>void
 }
 
-type InitialValuesType={
-    fullName: string
-    lookingForAJobDescription: string
-    aboutMe:string 
 
-} 
 
 const ProfileFormChange:React.FC<PropsTypes> = (props) => {
 
