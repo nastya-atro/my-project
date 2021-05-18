@@ -7,6 +7,7 @@ import thunkMiddleware, { ThunkAction } from "redux-thunk"
 import appReducer from './appReducer';
 import authReducer from './authReducer';
 import friendPageReducer from './friendPageReducer';
+import chatWebSocketReducer from "./chatWebSocketReducer";
 
 
 let rootReducer = combineReducers({
@@ -16,7 +17,8 @@ let rootReducer = combineReducers({
   usersPage: usersReducer,
   friendPage: friendPageReducer,
   auth: authReducer,
-  app: appReducer 
+  app: appReducer,
+  chat: chatWebSocketReducer
   
 });
 

@@ -23,6 +23,11 @@ const Navbar = () => {
                     <div>My Friends</div></NavLink>
             </div>
             <div className={`${s.item}`}>
+                <NavLink to="/chat" activeClassName={s.active}>
+                    <div>Chat online</div>
+                </NavLink>
+            </div>
+            <div className={`${s.item}`}>
                 <NavLink to="/dialog" activeClassName={s.active}>
                     <i className="fas fa-envelope"></i>
                     <div>Messages</div></NavLink>

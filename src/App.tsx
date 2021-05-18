@@ -19,8 +19,12 @@ import FooterContainer from './components/Footer/FooterContainer';
 import FriendPageContainer from './components/FreindPage/FriendPageContainer';
 import UsersPage from './components/Users/UsersContainer';
 
+
+
 //import DialogContainer from './components/Dialog/DialogContainer';
 const DialogContainer = React.lazy(() => import('./components/Dialog/DialogContainer'));
+//import ChatPages from './webSocket_pages/chat/ChatPages';
+const ChatPage=React.lazy(()=>import('./webSocket_pages/chat/ChatPages'))
 
 type MapStateToPropsType={
   isInitialised: boolean
@@ -34,6 +38,7 @@ type OwnPropsType={
 type PropsType=MapStateToPropsType & MapDispatchToPropsType& OwnPropsType
 
 const SuspenseDialog=withSuspense(DialogContainer)
+const SuspenseChatPages=withSuspense(ChatPage)
 
 class App extends React.Component<PropsType> {
   componentDidMount() {
@@ -60,6 +65,7 @@ class App extends React.Component<PropsType> {
           <Route path='/login' render={() => <LoginPage />} />
           {/*<Route path='*' render={() => (<div>404 NOT FOUND</div>)} />*/}
           <Route path='/friendpage' render={() => <FriendPageContainer />} />
+          <Route path='/chat' render={() => <SuspenseChatPages />} />
         </div>
       </div>
     )

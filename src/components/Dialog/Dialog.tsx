@@ -3,7 +3,9 @@ import s from './Dialog.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './MessageItem/MessageItem';
 import { Formik, Form, Field, FormikErrors } from 'formik';
-import { DialogsType, MessagesType } from '../../types/types';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppStateType } from '../../redux/redux-store';
+import { actions } from '../../redux/dialogReducer';
 
 
  const validateForm = (values:ValuesFormType) => {
@@ -18,24 +20,26 @@ import { DialogsType, MessagesType } from '../../types/types';
     return errors;
   }
 
-type PropsType={
-    dialogs: Array<DialogsType>
-    messages: Array<MessagesType>
-    sendMessageBody:(newMessage:string)=>void
-}
 
 type ValuesFormType={
     newMessage: string
 }
 
-const Dialog:React.FC<PropsType> = (props) => {
+const DialogPage:React.FC = () => {
+
+    const dialogs=useSelector((state:AppStateType)=>state.messagesPage.dialogs)
+    const messages=useSelector((state:AppStateType)=>state.messagesPage.messages)
+    const dispatch=useDispatch()
+    const sendMessageBody=(newMessage: string)=>{
+        dispatch(actions.sendMessageBody(newMessage))
+    }
 
     const addNewMessage = (values:ValuesFormType, { setSubmitting }:any) => {
-        props.sendMessageBody(values.newMessage)
+        sendMessageBody(values.newMessage)
         setSubmitting(false);
     }
-    let dialogElement = props.dialogs.map(d => <DialogItem name={d.name} key={d.id} id={d.id} photo={d.photo} />)
-    let messageElement = props.messages.map(m => <Message photo={m.photo} name={m.name} time={m.time} message={m.message} key={m.id} />)
+    let dialogElement = dialogs.map(d => <DialogItem name={d.name} key={d.id} id={d.id} photo={d.photo} />)
+    let messageElement = messages.map(m => <Message photo={m.photo} name={m.name} time={m.time} message={m.message} key={m.id} />)
 
     return (
         <div className={s.dialogs}>
@@ -77,4 +81,4 @@ const Dialog:React.FC<PropsType> = (props) => {
     )
 }
 
-export default Dialog;
+export default DialogPage;

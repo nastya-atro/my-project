@@ -8,10 +8,10 @@ import { AppStateType } from '../../redux/redux-store';
 import { getStatus, putPhotos } from '../../redux/profileReducer';
 import { updateStatus, changeProfile, getProfile } from './../../redux/profileReducer';
 import { useHistory } from 'react-router';
-
+ 
 
 let Profile:React.FC= () => {
-  debugger
+  
   const profile = useSelector((state: AppStateType) => state.profilePage.profile)
   const authUserId = useSelector((state: AppStateType) => state.auth.id)
   const status = useSelector((state: AppStateType) => state.profilePage.status)
