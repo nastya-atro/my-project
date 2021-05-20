@@ -6,8 +6,8 @@ type GetUsersType={
     items: Array<UserType>
     totalCount: number
     error: string
-}
-
+} 
+ 
 export const usersApi = {
     getUsers(currentPage:number, pageSize:number, term:string, friend: null|boolean=null) {
         return instanse.get<GetUsersType>(`users?page=${currentPage}&count=${pageSize}&term=${term}`+ (friend===null ? '':`&friend=${friend}`))
@@ -15,8 +15,8 @@ export const usersApi = {
                 return response.data
             })
     },
-    getFollowedUsers(currentPage:number, pageSize:number, friend:boolean) {
-        return instanse.get<GetUsersType>(`users?page=${currentPage}&count=${pageSize}&friend=${friend}`)
+    getFollowedUsers(currentPage:number, pageSize:number, friend:boolean, term:string) {
+        return instanse.get<GetUsersType>(`users?page=${currentPage}&count=${pageSize}&friend=${friend}&term=${term}`)
             .then(response => {
                 return response.data
             })
