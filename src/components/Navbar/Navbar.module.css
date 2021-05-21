@@ -5,18 +5,17 @@
     flex-direction: column;
     justify-content: flex-start;
     text-align: center;
-   
+    margin-top: 10px;
   }
   
 .item{
-  height: 100px;
+  height: 50px;
   margin: 10px;
-  padding-top: 50px;
-  background-color: rgba(189, 189, 189, 0.233);
+  padding-top: 20px;
 }
 
 .item:hover{
-  background-color: #03645188;
+  background-color: #a0a0a044;
   transform: scale(0.9);
   transition: all .3s;
 }
@@ -29,5 +28,5 @@
 
  .item a.active {
    color: #036451cc;
-   font-size: 20px;
+   font-size: 15px;
  } 

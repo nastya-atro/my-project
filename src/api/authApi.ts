@@ -7,6 +7,7 @@ type LoginTypeData = {
     userId: number
 }
 export const authApi = {
+    
     getLogin() {
         return instanse.get<ResponseType<GetLoginTypeData, ResultCodeEnum | ResultCodeEnumWithCaptcha>>(`auth/me`)
             .then(res => res.data)
@@ -17,6 +18,6 @@ export const authApi = {
     },
     logout() {
         return instanse.delete<ResponseType>(`auth/login`)
-            .then(res => res.data)
+        .then(res => res.data)
     }
 }

@@ -8,8 +8,6 @@ type PropsTypes={
     saveForm:(values: any, { setSubmitting }: { setSubmitting: any; })=>void
 }
 
-
-
 const ProfileFormChange:React.FC<PropsTypes> = (props) => {
 
     return (
@@ -23,10 +21,6 @@ const ProfileFormChange:React.FC<PropsTypes> = (props) => {
                 onSubmit={props.saveForm}
             >
                 {({ values,
-                    errors,
-                    touched,
-                    handleChange,
-                    handleBlur,
                     handleSubmit,
                     isSubmitting }) => (
                     <Form onSubmit={handleSubmit}>

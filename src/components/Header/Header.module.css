@@ -1,3 +1,7 @@
+img.img{
+  max-height: 60px;
+}
+
 .header{
     font-family: 'Inconsolata', monospace;
     font-size: 15px;
@@ -6,7 +10,6 @@
     grid-area: h;
     background-color: white;
     padding: 15px 20px;
-    
   }
 
 .header img{
@@ -45,7 +48,7 @@ span.buttonLogout button{
   width: 80px;
   text-transform: uppercase;
   padding: 5px 2px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
   border: 1px solid #0fc19e;
 }
 

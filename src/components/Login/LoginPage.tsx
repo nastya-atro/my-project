@@ -6,11 +6,6 @@ import { Redirect } from 'react-router';
 import s from './LoginPage.module.css';
 import { AppStateType } from '../../redux/redux-store';
 
-
-
-
-
-
 type ValuesType={
     email:string
     password:string
@@ -18,8 +13,6 @@ type ValuesType={
     checkbox: any
 }
 //type ValuesTypeKeys= Extract<keyof ValuesType, string>
-
-
 
 const validateForm = (values:ValuesType) => {
     const errors:FormikErrors<ValuesType>={};
@@ -44,7 +37,6 @@ const isAuth=useSelector((state:AppStateType)=>{return state.auth.isAuth})
 const captcha=useSelector((state:AppStateType)=>{return state.auth.captcha})
 
 const dispatch=useDispatch()
-
 
     const submit = (values:ValuesType, onSubmitProps:any) => {
         dispatch(login(values.email, values.password, values.checkbox, values.captcha))

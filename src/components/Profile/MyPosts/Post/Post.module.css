@@ -1,13 +1,7 @@
 .postBlock {
     font-family: 'Ubuntu', sans-serif;
    color:rgba(0, 0, 0, 0.466);
-    width: 48%;
-    margin-bottom: 20px;
-    border: 1px solid black;
-    max-height: 500px;
-    display: grid;
-    grid-template-rows: 1fr 5fr 1fr;
-    border: none;
+   margin: 0 80px;
 }
 
 .postBlock_img img{

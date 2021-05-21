@@ -8,10 +8,9 @@ import { profileApi } from './../api/profileApi';
  
 let initialState = {
     posts: [
-        { id: 1, message: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat.', likesNumber: 22 },
-
+        { id: 1, message: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', likesNumber: 22 },
         { id: 2, message: 'Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? ', likesNumber: '18' },
-        { id: 3, message: 'Nothing, everything, anything, something: if you have nothing, then you have everything, because you have the freedom to do anything, without the fear of losing something.', likesNumber: '18' },
+        { id: 3, message: 'Nothing, everything, anything, something: if you have nothing, then you have everything, because you have the freedom to do anything, without the fear of losing something.', likesNumber: '99' },
     ] as Array<PostsType>,
     profile: null as ProfileType | null,
     status: ""
@@ -31,7 +30,7 @@ const profileReducer = (state: InitialStateType = initialState, action: ActionsT
 
             return {
                 ...state,
-                posts: [...state.posts, newPost]
+                posts: [newPost, ...state.posts]
             }
 
         case "profile/SET_USER_PROFILE":

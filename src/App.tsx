@@ -17,13 +17,11 @@ import Preloader from './components/common/preloader/Preloader';
 import FooterContainer from './components/Footer/FooterContainer';
 import FriendPageContainer from './components/FreindPage/FriendPageContainer';
 import UsersPage from './components/Users/UsersContainer';
-
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import { AppBar, Box } from '@material-ui/core';
+import { AppBar} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-
 
 const DialogContainer = React.lazy(() => import('./components/Dialog/DialogContainer'));
 const ChatPage = React.lazy(() => import('./webSocket_pages/chat/ChatPages'))
@@ -32,15 +30,25 @@ const SuspenseDialog = withSuspense(DialogContainer)
 const SuspenseChatPages = withSuspense(ChatPage)
 
 const useStyles = makeStyles((theme) => ({
+  link: {
+    display: 'flex',
+  },
+  icon: {
+    marginRight: theme.spacing(0.5),
+    width: 20,
+    height: 20,
+  },
   root: {
     flexGrow: 1
 
   },
-  mainContent:{
-    marginTop: theme.spacing(13)
+  mainContent: {
+    marginTop: theme.spacing(10)
+
+  },
+  content: {
+    backgroundColor: 'rgba(189, 189, 189, 0.233)'
   }
-
-
 })
 )
 
@@ -51,14 +59,9 @@ const App: React.FC = () => {
   const isInitialised = useSelector((state: AppStateType) => state.app.isInitialised)
   const dispatch = useDispatch()
 
-
   useEffect(() => {
     dispatch(initializeApp())
   }, [])
-
-
-
-
 
   if (!isInitialised) {
     return <Preloader />
@@ -67,56 +70,43 @@ const App: React.FC = () => {
   return (
 
     <>
-      <AppBar position="fixed"  >
+      <AppBar position="fixed" >
         <HeaderContainer />
       </AppBar>
-      
-      <Paper className={classes.mainContent}>
+
+      <Paper elevation={0} className={classes.mainContent}>
+
         <Container fixed>
-        <Grid container spacing={2}>
-          <Grid item xs={2}>
-            <Navbar />
-          </Grid>
+          <Grid container spacing={2}>
+            <Grid item xs={2}>
+              <Navbar />
+            </Grid>
 
-          <Grid item xs={10}>
-            <Route exact path='/' render={() => <Redirect to={"/profile"} />} />
-            <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
-            {/*<Route path='/dialog' render={() => <DialogContainer />} />*/}
-            <Route path='/dialog' render={() => <SuspenseDialog />} />
-            <Route path='/music' render={() => <Music />} />
-            <Route path='/setting' render={() => <Setting />} />
-            <Route path='/users' render={() => <UsersPage />} />
-            <Route path='/login' render={() => <LoginPage />} />
-            {/*<Route path='*' render={() => (<div>404 NOT FOUND</div>)} />*/}
-            <Route path='/friendpage' render={() => <FriendPageContainer />} />
-            <Route path='/chat' render={() => <SuspenseChatPages />} />
-          </Grid>
+            <Grid item xs={10} className={classes.content}>
+              <Route exact path='/' render={() => <Redirect to={"/profile"} />} />
+              <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
+              {/*<Route path='/dialog' render={() => <DialogContainer />} />*/}
+              <Route path='/dialog' render={() => <SuspenseDialog />} />
+              <Route path='/music' render={() => <Music />} />
+              <Route path='/setting' render={() => <Setting />} />
+              <Route path='/users' render={() => <UsersPage />} />
+              <Route path='/login' render={() => <LoginPage />} />
+              {/*<Route path='*' render={() => (<div>404 NOT FOUND</div>)} />*/}
+              <Route path='/friendpage' render={() => <FriendPageContainer />} />
+              <Route path='/chat' render={() => <SuspenseChatPages />} />
+            </Grid>
 
-          <Grid item xs={12}>
-            <FooterContainer />
-          </Grid>
+            <Grid item xs={12}>
+              <FooterContainer />
+            </Grid>
 
-        </Grid>
+          </Grid>
         </Container>
       </Paper>
 
-
-
-
-
     </>
-
-
-
-
-
-
-
   )
 }
-
-
-
 
 
 let AppC = withRouter(App)
@@ -126,7 +116,6 @@ const AppContainer = () => {
     <AppC />
   )
 }
-
 
 let MainApp: React.FC = () => {
   return <HashRouter basename={process.env.PUBLIC_URL}>
