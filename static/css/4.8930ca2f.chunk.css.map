@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/webSocket_pages/chat/ChatPages.module.css"],"names":[],"mappings":"AAAA,2BACI,YAAa,CACb,iBAAkB,CAClB,qBAEJ,CAEA,0BACI,UACJ","file":"4.8930ca2f.chunk.css","sourcesContent":[".chatPage{\r\n    padding: 20px;\r\n    margin: 30px 100px;\r\n    border: 1px solid black\r\n\r\n}\r\n\r\n.imgUser{\r\n    width: 40px\r\n}"]}
