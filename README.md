@@ -1,3 +1,8 @@
+Test account:
+Email: free@samuraijs.com
+Password: free
+
+
 ![5](https://user-images.githubusercontent.com/81364326/120036842-6663fe80-c009-11eb-87f3-632b918bd7c2.JPG)
 ![3](https://user-images.githubusercontent.com/81364326/120036837-649a3b00-c009-11eb-935a-977fc60ff5f5.JPG)
 ![3](https://user-images.githubusercontent.com/81364326/120529603-540d0a80-c3e5-11eb-8085-d8d10d1f45c1.JPG)![4](https://user-images.githubusercontent.com/81364326/120529646-5f603600-c3e5-11eb-9f77-bdfc4d931e07.JPG)
